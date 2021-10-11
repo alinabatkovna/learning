@@ -1,5 +1,3 @@
-"use strict";
-
 // const result = confirm("Are you here?");
 // console.log(result);
 //
@@ -25,6 +23,8 @@
 // console.log(incr);
 // console.log(decr);
 
+"use strict";
+
 let numberOfFilms;
 
 function start() {
@@ -37,7 +37,7 @@ function start() {
 start();
 
 const personalMovieBD = {
-    count: 0,
+    count: numberOfFilms,
     movies: {},
     actors: {},
     genres: [],
@@ -59,8 +59,15 @@ function addMovie() {
     console.log(personalMovieBD);
 }
 
-function showMyBD ()
+function showMyBD(object) {
+    if(object.privat === false) {
+        console.log(object)
+    } else {
+        console.log("Error")
+    }
+}
 
+showMyBD(personalMovieBD)
 
 // for (let i = 0; i < 2; i++){
 //     const a = prompt('Последний фильм, который вы смотрели?', '');
