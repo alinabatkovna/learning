@@ -1,28 +1,3 @@
-// const result = confirm("Are you here?");
-// console.log(result);
-//
-// const answer = +prompt("Вам есть 18?", "18");
-// console.log(typeof (answer));
-// document.write(answer);
-//
-// const category = 'toys';
-// console.log(`https://someurl.com/${category}/5`);
-//
-// const nameUser = prompt("What is your name?", "Alina");
-// alert(`Hello, ${nameUser}!`);
-//
-// let incr = 10,
-//     decr = 10;
-//
-// ++incr;   // - префиксная форма инкрементации (++, а потом возращает значение)
-// incr++;   // - постфиксная форма инкрементации (возращает значение, а потом ++)
-//
-// --decr;   // - префиксная форма декриминтации
-// decr--;   // - постфиксная форма декриминтации
-//
-// console.log(incr);
-// console.log(decr);
-
 "use strict";
 
 let numberOfFilms;
@@ -44,9 +19,18 @@ const personalMovieBD = {
     privat: false
 };
 
+// function filter_movies_by_name(movies, movie_name) {
+//     let result = []
+//     for (let movie in movies) {
+//         if (movie_name in movie['name']) {
+//             result.push(movie)
+//         }
+//     }
+//     return result
+
 function getValueFromUser(question) {
     let value = null;
-    while (value === null){
+    while (value === null) {
         value = prompt(question, '');
     }
     return value
@@ -59,16 +43,6 @@ function addMovie() {
     console.log(personalMovieBD);
 }
 
-function showMyBD(object) {
-    if(object.privat === false) {
-        console.log(object)
-    } else {
-        console.log("Error")
-    }
-}
-
-showMyBD(personalMovieBD)
-
 // for (let i = 0; i < 2; i++){
 //     const a = prompt('Последний фильм, который вы смотрели?', '');
 //     if (a && a.length < 50) {
@@ -76,13 +50,11 @@ showMyBD(personalMovieBD)
 //         if (b && b.length < 50) {
 //             personalMovieBD.movies[a] = b;
 //             console.log('Great`!');
-//         }
-//         else {
+//         } else {
 //             console.log('Error');
 //             i--;
 //         }
-//     }
-//     else {
+//     } else {
 //         console.log('Error');
 //         i--;
 //         console.log(i)
@@ -95,9 +67,41 @@ showMyBD(personalMovieBD)
 //     if (a != null && b != null && a !== '' && b !== '' && a.length < 50 && b.length < 50) {
 //         personalMovieBD.movies[a] = b;
 //         console.log('Great`!');
-//     }
-//     else {
+//     } else {
 //         console.log('Error');
 //         i--;
 //     }
 // };
+
+function showMyBD(object) {
+    if (object.privat === false) {
+        console.log(object)
+    } else {
+        console.log("Error")
+    }
+}
+
+showMyBD(personalMovieBD);
+
+function detectPersonalLevel() {
+    if (personalMovieBD.count < 10) {
+        console.log("Просмотрено довольно мало фильмов!");
+    } else if (personalMovieBD.count >= 10 && personalMovieBD.count < 30) {
+        console.log("Вы классный зритель!");
+    } else if (personalMovieBD.count >= 30) {
+        console.log("Вы киноман!");
+    } else {
+        console.log("Произошла ошибка");
+    }
+}
+
+detectPersonalLevel();
+
+function writeYourGenres() {
+for (let i = 1; i <= 3; i++) {
+    let genre = prompt(`Ваш любимый жанр под номером ${i}`, "")
+    personalMovieBD.genres.push(genre)
+    }
+}
+
+writeYourGenres()
