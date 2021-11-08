@@ -7,3 +7,6 @@ console.log(Math.round(num));
 let numTest = "12.2px";
 console.log(parseInt(numTest));
 console.log(parseFloat(numTest));
+
+let str = +"12";
+console.log(typeof (str));
